@@ -1,2 +1,3 @@
-Added Repo To GitHub
-Upadte To ChangeLog
+Change Log  
+24/04/2021 - Initial Version of test files
+25/04/2021 - Uploaded files to GIT  
