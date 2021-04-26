@@ -5,7 +5,7 @@
   connection: local
   tasks:
     - name: Configure Test SVI
-      cisco.ios.ios_l3_interfaces::
+      cisco.ios.ios_l3_interfaces:
         config:
         - name: vlan100
         ipv4:
