@@ -1,0 +1,3 @@
+*
+fatal: [172.16.5.1]: FAILED! => {"changed": false, "msg": "show running-config | section ^interface\r\nshow running-config | section ^interface\r\n                      ^\r\n% Invalid input detected at '^' marker.\r\n\r\nGBCLT-CSW1#"}
+
