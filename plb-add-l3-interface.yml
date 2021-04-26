@@ -1,0 +1,14 @@
+---
+- name: Add SVI
+  hosts: LAN
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Configure Test SVI
+      cisco.ios.ios_l3_interfaces::
+        config:
+        - name: vlan100
+        ipv4:
+        - addresss: 172.16.100.1/24
+        state: merged
+...
