@@ -4,6 +4,7 @@
   gather_facts: no
   connection: local
   tasks:
+    name: Add vlan 100
     cisco.ios.ios_l3_interfaces:
       config:
       - name: vlan100
