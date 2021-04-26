@@ -1,0 +1,12 @@
+---
+- name: Configuration Update
+  hosts: LAN
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: configure interface settings
+    cisco.ios.ios_config:
+      lines:
+      - no interface vlan 100
+...
