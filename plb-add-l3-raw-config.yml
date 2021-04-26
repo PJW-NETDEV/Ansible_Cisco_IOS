@@ -1,0 +1,14 @@
+---
+- name: Configuration Update
+  hosts: LAN
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: configure interface settings
+    cisco.ios.ios_config:
+      lines:
+      - description Test VLAN from ansible
+      - ip address 192.168.100.1 255.255.255.0
+      parents: interface vlan 100
+...
