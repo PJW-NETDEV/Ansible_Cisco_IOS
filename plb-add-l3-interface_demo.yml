@@ -1,5 +1,5 @@
 ---
-- name: Merge provided configuration with device configuration
+- name: Add L3 Interfaces
   hosts: LAN
   gather_facts: no
   connection: local
