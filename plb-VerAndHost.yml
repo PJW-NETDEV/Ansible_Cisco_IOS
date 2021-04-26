@@ -14,4 +14,5 @@
     - name: What is the hostname?
       debug:
         var: ansible_net_hostname
+        msg: "{{ ansible_net_version }}"
 ...
