@@ -1,0 +1,29 @@
+---
+- name: create an ACL
+  hosts: LAB_ROUTERS
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Create an access list
+      cisco.ios.ios_acls:
+        config:
+        - afi: ipv4
+          acls:
+          - name: PW-Test-ACL
+            acl_type: extended 
+            aces:
+            - grant: permit
+              protocol: tcp
+ #             protocol_options:
+ #               tcp:
+ #                 fin: true
+              source: 
+                address: 10.10.10.0
+                wildcard_bits: 0.0.0.255
+              destination:
+                address: 192.168.0.0
+                wildcard_bits: 0.0.255.255
+                port_protocol:
+                  eq: 22
+        state: merged
+...

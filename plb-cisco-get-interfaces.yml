@@ -1,0 +1,18 @@
+---
+- name: Gather IOS Facts
+  hosts: LAB-HOSTS
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Gather IOS Facts
+      ios_facts:
+
+    - name: What are the interfaces?
+      debug:
+        var: ansible_net_neighbors
+        var: ansible_net_interfaces
+
+    - name: Save Output
+      copy: content="{{ ansible_net_interfaces }}" dest=/home/ansible/test-ip-output.txt
+
+...

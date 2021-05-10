@@ -8,7 +8,7 @@
   - name: Add vlan 100
     cisco.ios.ios_l3_interfaces:
       config:
-      - name: vlan100
+      - name: gigabitEthernet1/0/3
         ipv4:
         - address: 192.168.100.1/24
       state: merged

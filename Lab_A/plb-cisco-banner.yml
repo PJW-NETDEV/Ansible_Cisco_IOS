@@ -1,10 +1,10 @@
 ---
-- name: Configure the login banner
-  hosts: LAN
+- name: Set System Banners
+  hosts: all
   gather_facts: no
   connection: local
   tasks:
-    - name: Configure the login banner
+    - name: Configure the MOTD login banner
       cisco.ios.ios_banner:
         banner: motd
         text: |

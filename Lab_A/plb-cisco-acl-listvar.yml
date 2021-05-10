@@ -1,0 +1,36 @@
+---
+- name: create an ACL
+  hosts: LAB_ROUTERS
+  vars:
+    list_local_subnbets:
+      172.16.30.10: 10.10.10.0
+      172.16.30.11: 10.10.20.0
+      172.16.30.12: 10.10.30.0
+      172.16.30.13: 10.10.40.0
+    destination_mask: 0.0.0.255
+
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Create an access list
+      cisco.ios.ios_acls:
+        config:
+        - afi: ipv4
+          acls:
+          - name: PW-Test-ACL
+            acl_type: extended 
+            aces:
+            - grant: permit
+              protocol: tcp
+              sequence: 10
+              source: 
+                address: 10.0.0.0
+                wildcard_bits: 0.255.255.255
+              destination:
+                address: "{{ list_local_subnbets[inventory_hostname] }}"
+                wildcard_bits: "{{ destination_mask }}"
+                port_protocol:
+                  eq: 80
+        state: replaced
+
+...

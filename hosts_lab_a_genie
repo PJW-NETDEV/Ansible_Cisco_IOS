@@ -25,11 +25,21 @@
 
 [LAN]
 172.16.5.1
-#172.15.5.2
+172.15.5.2
 
 [MY-HOSTS]
 172.16.5.59
 172.16.15.7
+
+[LAB-HOSTS]
+172.16.30.10
+172.16.30.11
+172.16.30.12
+172.16.30.13
+172.16.30.20
+172.16.30.21
+172.16.30.22
+172.16.30.23
 
 [LAN:vars]
 ansible_user=ansible
@@ -46,6 +56,19 @@ ansible_password=C1sco12345
 ansible_connection=network_cli
 ansible_network_os=ios
 ansible_port=8181
+
+[LAN:vars]
+ansible_user=cisco
+ansible_password=cisco
+ansible_connection=network_cli
+ansible_network_os=ios
+
+[LAB-HOSTS:vars]
+ansible_user=cisco
+ansible_password=cisco
+ansible_connection=network_cli
+ansible_network_os=ios
+
 
 # If you have multiple hosts following a pattern you can specify
 # them like this:

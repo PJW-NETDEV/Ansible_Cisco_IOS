@@ -1,0 +1,24 @@
+---
+- name: Gather IOS Facts
+  hosts: LAB-HOSTS
+  gather_facts: no
+  connection: local
+  tasks:
+    - name: Gather IOS Facts
+      ios_facts:
+
+    - name: What are the interfaces?
+      debug:
+        var: ansible_net_neighbors
+        var: ansible_net_interfaces
+
+    - name: Save Output
+      copy:
+        content: |
+        {% for host in groups['LAB-HOSTS'] %}
+        Hostname: "{{ ansible_net_hostname }}"
+        Model: "{{ ansible_net_model }}"
+        Serial: "{{ ansible_net_serialnum }}"
+        {% endfor %}
+      dest=/home/ansible/Lab-Inventory.txt
+...
